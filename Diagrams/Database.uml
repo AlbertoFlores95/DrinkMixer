@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>ac50b458-bb3b-4218-b63e-3e83f5777d17.SCHEMA:DrinkMixer.dbo</OriginalElement>
+  <nodes>
+    <node x="259.5" y="-1.5">ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.USER</node>
+    <node x="278.5" y="267.5">ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.Order_Summary</node>
+    <node x="636.0" y="267.5">ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.Recipe_Details</node>
+    <node x="-9.0" y="402.5">ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.Active_Bottle</node>
+    <node x="-22.5" y="529.5">ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.Bottle</node>
+    <node x="676.0" y="552.0">ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.Recipe_Components</node>
+    <node x="-26.0" y="689.5">ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.sysdiagrams</node>
+    <node x="308.5" y="541.0">ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.Order_Components</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.Order_Components" target="ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.Order_Summary">
+      <point x="0.0" y="-59.0" />
+      <point x="0.0" y="92.5" />
+    </edge>
+    <edge source="ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.Order_Summary" target="ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.USER">
+      <point x="0.0" y="-92.5" />
+      <point x="0.0" y="81.5" />
+    </edge>
+    <edge source="ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.Order_Summary" target="ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.Recipe_Details">
+      <point x="121.5" y="0.0" />
+      <point x="-124.0" y="0.0" />
+    </edge>
+    <edge source="ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.Recipe_Components" target="ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.Recipe_Details">
+      <point x="0.0" y="-48.0" />
+      <point x="0.0" y="92.5" />
+    </edge>
+    <edge source="ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.Order_Components" target="ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.Bottle">
+      <point x="-91.5" y="0.0" />
+      <point x="102.5" y="0.0" />
+    </edge>
+    <edge source="ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.Active_Bottle" target="ac50b458-bb3b-4218-b63e-3e83f5777d17.TABLE:DrinkMixer.dbo.Bottle">
+      <point x="0.0" y="37.5" />
+      <point x="0.0" y="-70.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6000000000000001" x="417.9999999999999" y="532.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+

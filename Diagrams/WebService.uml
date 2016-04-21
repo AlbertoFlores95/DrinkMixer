@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Domotica.DrinkMixer.RESTService</OriginalElement>
+  <nodes>
+    <node x="650.25" y="591.25">Domotica.DrinkMixer.RESTService.DatabaseConnection</node>
+    <node x="305.5" y="733.75">Domotica.DrinkMixer.RESTService.RecipeService</node>
+    <node x="0.0" y="0.0">Domotica.DrinkMixer.RESTService.RecipeDetails</node>
+    <node x="-168.75" y="660.0">Domotica.DrinkMixer.RESTService.RecipeComponents</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Domotica.DrinkMixer.RESTService.RecipeService" target="Domotica.DrinkMixer.RESTService.RecipeComponents">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Domotica.DrinkMixer.RESTService.RecipeService" target="Domotica.DrinkMixer.RESTService.RecipeDetails">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Domotica.DrinkMixer.RESTService.RecipeService" target="Domotica.DrinkMixer.RESTService.DatabaseConnection">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="Domotica.DrinkMixer.RESTService.RecipeDetails" target="Domotica.DrinkMixer.RESTService.RecipeComponents">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8" x="140.875" y="450.375" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

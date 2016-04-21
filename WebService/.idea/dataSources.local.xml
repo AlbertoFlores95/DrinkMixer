@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="SQL Server (jTds) - DrinkMixer@localhost" uuid="effea02c-3e75-411f-b2be-07c19191933a">
+      <secret-storage>master_key</secret-storage>
+      <user-name>Alberto.Flores</user-name>
+      <schema-pattern>DrinkMixer.*</schema-pattern>
+      <default-schemas>DrinkMixer.*</default-schemas>
+    </data-source>
+  </component>
+</project>
