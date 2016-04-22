@@ -4,7 +4,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.BufferedReader;
@@ -14,12 +13,24 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.DocumentBuilder;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Node;
+import org.w3c.dom.Element;
+
 /**
  * Created by Alberto Flores on 4/17/2016.
  */
-public class FetchRecipesTask extends AsyncTask<Void, Void, Void> {
+public class RecipesFetchTask extends AsyncTask<Void, Void, Void> {
 
-    private final String LOG_TAG = FetchRecipesTask.class.getSimpleName();
+    private final String LOG_TAG = RecipesFetchTask.class.getSimpleName();
     private XmlPullParserFactory xmlFactoryObject;
 
     @Override
@@ -36,9 +47,10 @@ public class FetchRecipesTask extends AsyncTask<Void, Void, Void> {
             // Construct the URL for the OpenWeatherMap query
             // Possible parameters are avaiable at OWM's forecast API page, at
             // http://openweathermap.org/API#forecast
+            //TODO:
             Uri.Builder buildURL = new Uri.Builder();
             buildURL.scheme("http")
-                    .authority("192.168.0.7")
+                    .authority("10.33.24.56")
                     .appendPath("recipes")
                     .appendPath("all")
                     .build();
@@ -71,7 +83,9 @@ public class FetchRecipesTask extends AsyncTask<Void, Void, Void> {
                 return null;
             }
             forecastJsonStr = buffer.toString();
-            Log.v(LOG_TAG,"RECIPES: " + forecastJsonStr);
+            Log.v(LOG_TAG, "RECIPES: " + forecastJsonStr);
+            ReadXMLFile(forecastJsonStr);
+
         } catch (IOException e) {
             Log.e(LOG_TAG, "Error ", e);
             // If the code didn't successfully get the weather data, there's no point in attemping
@@ -90,12 +104,61 @@ public class FetchRecipesTask extends AsyncTask<Void, Void, Void> {
             }
         }
 
-
         return null;
     }
 
+    public List<RecipeDetails> ReadXMLFile(String xml) {
 
-    
+        ArrayList<RecipeDetails> recipesList = new ArrayList<RecipeDetails>();
+
+        try {
+
+            ByteArrayInputStream stream = new ByteArrayInputStream(xml.getBytes());
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(stream);
+            doc.getDocumentElement().normalize();
+
+            RecipeDetails recipes;
+
+            Log.v(LOG_TAG, "Root element :" + doc.getDocumentElement().getNodeName());
+
+            NodeList nList = doc.getElementsByTagName("Recipe");
+
+            Log.v(LOG_TAG, "------------------------------");
+
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+
+                Node nNode = nList.item(temp);
+
+                Log.v(LOG_TAG, "\nCurrent Element :" + nNode.getNodeName());
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+                    Element eElement = (Element) nNode;
+
+                    recipes = new RecipeDetails();
+
+                    recipes.setRecipeid(Integer.parseInt(eElement.getElementsByTagName("recipeid").item(0).getTextContent()));
+                    recipes.setName(eElement.getElementsByTagName("name").item(0).getTextContent());
+                    recipes.setDescription(eElement.getElementsByTagName("description").item(0).getTextContent());
+                    recipes.setCostSmall(Integer.parseInt(eElement.getElementsByTagName("costSmall").item(0).getTextContent()));
+                    recipes.setCostMedium(Integer.parseInt(eElement.getElementsByTagName("costMedium").item(0).getTextContent()));
+                    recipes.setCostBig(Integer.parseInt(eElement.getElementsByTagName("costBig").item(0).getTextContent()));
+                    Log.v(LOG_TAG,recipes.toString());
+                    Log.v(LOG_TAG, "    ");
+
+                    recipesList.add(recipes);
+
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return recipesList;
+    }
+
 
 }
 

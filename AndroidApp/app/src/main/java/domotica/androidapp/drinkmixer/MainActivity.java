@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity
         ArrayAdapter adapter = new ArrayAdapter(this, R.layout.recipe_card_main_activity, R.id.recipe_card_textView, ForecastArray);
         // Assign adapter to ListView
         lv.setAdapter(adapter);
-        FetchRecipesTask fetchRecipesTask = new FetchRecipesTask();
+        RecipesFetchTask fetchRecipesTask = new RecipesFetchTask();
         fetchRecipesTask.execute();
     }
 
