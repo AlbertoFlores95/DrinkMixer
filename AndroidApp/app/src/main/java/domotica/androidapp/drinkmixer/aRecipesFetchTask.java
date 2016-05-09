@@ -28,13 +28,13 @@ import org.w3c.dom.Element;
 /**
  * Created by Alberto Flores on 4/17/2016.
  */
-public class RecipesFetchTask extends AsyncTask<Void, Void, Void> {
+public class aRecipesFetchTask extends AsyncTask<Void, Void, List<RecipeDetails>> {
 
-    private final String LOG_TAG = RecipesFetchTask.class.getSimpleName();
+    private final String LOG_TAG = aRecipesFetchTask.class.getSimpleName();
     private XmlPullParserFactory xmlFactoryObject;
 
     @Override
-    protected Void doInBackground(Void... params) {
+    protected List<RecipeDetails> doInBackground(Void... params) {
         // These two need to be declared outside the try/catch
         // so that they can be closed in the finally block.
         HttpURLConnection urlConnection = null;
@@ -84,7 +84,9 @@ public class RecipesFetchTask extends AsyncTask<Void, Void, Void> {
             }
             forecastJsonStr = buffer.toString();
             Log.v(LOG_TAG, "RECIPES: " + forecastJsonStr);
-            ReadXMLFile(forecastJsonStr);
+            String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><recipeDetailss><Recipe><componentsList><alcoholType>Rum</alcoholType><percentage>1</percentage></componentsList><componentsList><alcoholType>coconut milk</alcoholType><percentage>1</percentage></componentsList><componentsList><alcoholType>Pineapple juice</alcoholType><percentage>3</percentage></componentsList><costBig>30</costBig><costMedium>15</costMedium><costSmall>10</costSmall><description>sweet cocktail made with rum, coconut cream or coconut milk, and pineapple juice</description><name>PiÃ±a colada</name><recipeid>2</recipeid></Recipe><Recipe><componentsList><alcoholType>Rum</alcoholType><percentage>4</percentage></componentsList><componentsList><alcoholType>lime juice</alcoholType><percentage>3</percentage></componentsList><costBig>12</costBig><costMedium>8</costMedium><costSmall>3</costSmall><description>Tradit</description><name>Mojito</name><recipeid>8</recipeid></Recipe><Recipe><componentsList><alcoholType>Rum</alcoholType><percentage>5</percentage></componentsList><componentsList><alcoholType>Cola</alcoholType><percentage>12</percentage></componentsList><componentsList><alcoholType>lime juice</alcoholType><percentage>1</percentage></componentsList><costBig>13</costBig><costMedium>10</costMedium><costSmall>5</costSmall><description>cocktail made of cola, lime, and dark or light rum.</description><name>Cuba Libre</name><recipeid>11</recipeid></Recipe><Recipe><componentsList><alcoholType>Vodka</alcoholType><percentage>3</percentage></componentsList><componentsList><alcoholType>Tomato Juice</alcoholType><percentage>6</percentage></componentsList><componentsList><alcoholType>Lime Juice</alcoholType><percentage>1</percentage></componentsList><costBig>10</costBig><costMedium>7</costMedium><costSmall>3</costSmall><description>The name \"Bloody Mary\" is associated with a number of historical figures â€” particularly Qu</description><name>Bloody Mary</name><recipeid>15</recipeid></Recipe></recipeDetailss>";
+
+            ReadXMLFile(xml);
 
         } catch (IOException e) {
             Log.e(LOG_TAG, "Error ", e);
@@ -109,7 +111,7 @@ public class RecipesFetchTask extends AsyncTask<Void, Void, Void> {
 
     public List<RecipeDetails> ReadXMLFile(String xml) {
 
-        ArrayList<RecipeDetails> recipesList = new ArrayList<RecipeDetails>();
+        ArrayList<RecipeDetails> recipesList = new ArrayList<>();
 
         try {
 
@@ -145,10 +147,11 @@ public class RecipesFetchTask extends AsyncTask<Void, Void, Void> {
                     recipes.setCostSmall(Integer.parseInt(eElement.getElementsByTagName("costSmall").item(0).getTextContent()));
                     recipes.setCostMedium(Integer.parseInt(eElement.getElementsByTagName("costMedium").item(0).getTextContent()));
                     recipes.setCostBig(Integer.parseInt(eElement.getElementsByTagName("costBig").item(0).getTextContent()));
-                    Log.v(LOG_TAG,recipes.toString());
-                    Log.v(LOG_TAG, "    ");
+//                    Log.v(LOG_TAG,recipes.toString());
+//                    Log.v(LOG_TAG, "    ");
 
                     recipesList.add(recipes);
+                    Log.v(LOG_TAG,recipesList.toString());
 
                 }
             }

@@ -4,21 +4,37 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
- * Created by Alberto Flores on 4/12/2016.
+ * Create connections to DrinkMixer database
+ *
+ * @author Alberto Flores A00759273 Alberto@Flores.cf
+ * @author Fernando Narvaez A00759294 fernandonarvy69@gmail.com
+ * @author Osmar Hernandez OsmarHernadezs@gmailcom
+ * @author Jose Enriquez A00759279 joseaenriqueza@gmail.com
+ * @version 1.0
+ * @since 2016-04-12
  */
 public class DatabaseConnection {
 
-    Connection con;
-
+    /**
+     * creates the connection to DrinkMixer
+     *
+     * @return con return the active connection to the database.
+     */
     public Connection con() {
+
+        /**
+         * Stores the connection
+         */
+        Connection con;
+
+        // try to establish connection to the database
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:jtds:sqlserver://localhost:1433/DrinkMixer" +
+            con = DriverManager.getConnection("jdbc:jtds:sqlserver://localhost:1433/DrinkMixer" +
                     ";instance=SQLEXPRESS;user=Alberto.Flores;password=betobeto");
-
             return con;
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e); // Print error
         }
         return con();
     }

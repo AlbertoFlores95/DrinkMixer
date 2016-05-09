@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3801310074">
+  <component name="DataSourceManagerImpl" format="xml" hash="90910754">
     <data-source source="LOCAL" name="SQL Server (jTds) - DrinkMixer@localhost" uuid="effea02c-3e75-411f-b2be-07c19191933a">
       <driver-ref>sqlserver.jtds</driver-ref>
       <synchronize>true</synchronize>

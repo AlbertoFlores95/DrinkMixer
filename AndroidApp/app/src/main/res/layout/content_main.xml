@@ -11,17 +11,17 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="domotica.androidapp.drinkmixer.MainActivity"
     tools:showIn="@layout/app_bar_main">
-
-    <!--<android.support.v7.widget.RecyclerView-->
+    <!---->
+    <!--<ListView-->
         <!--android:id="@+id/listView_recipeCards"-->
-        <!--android:scrollbars="vertical"-->
         <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"/>-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:scrollbars="vertical" />-->
 
-    <ListView
-        android:id="@+id/listView_recipeCards"
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical" />
+        android:id="@+id/listView_recipeCards"
+        />
 
 </RelativeLayout>
