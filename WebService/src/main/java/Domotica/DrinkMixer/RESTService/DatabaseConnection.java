@@ -6,10 +6,7 @@ import java.sql.DriverManager;
 /**
  * Create connections to DrinkMixer database
  *
- * @author Alberto Flores A00759273 Alberto@Flores.cf
- * @author Fernando Narvaez A00759294 fernandonarvy69@gmail.com
- * @author Osmar Hernandez OsmarHernadezs@gmailcom
- * @author Jose Enriquez A00759279 joseaenriqueza@gmail.com
+ * @author Alberto Flores Alberto@Flores.cf
  * @version 1.0
  * @since 2016-04-12
  */

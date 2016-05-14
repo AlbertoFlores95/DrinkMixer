@@ -7,10 +7,7 @@ import java.io.Serializable;
 /**
  * POJO of the components of the recipe
  *
- * @author Alberto Flores A00759273 Alberto@Flores.cf
- * @author Fernando Narvaez A00759294 fernandonarvy69@gmail.com
- * @author Osmar Hernandez OsmarHernadezs@gmailcom
- * @author Jose Enriquez A00759279 joseaenriqueza@gmail.com
+ * @author Alberto Flores Alberto@Flores.cf
  * @version     1.0
  * @since       2016-04-12
  */
@@ -49,6 +46,8 @@ public class RecipeComponents implements Serializable {
 
     /**
      * Getter which gets the alcoholType.
+     *
+     * @return Returns the alcoholType.
      */
     public String getAlcoholType() {
         return alcoholType;
@@ -65,6 +64,7 @@ public class RecipeComponents implements Serializable {
 
     /**
      * Getter which gets the percentage.
+     * @return Returns percentage.
      */
     public int getPercentage() {
         return percentage;

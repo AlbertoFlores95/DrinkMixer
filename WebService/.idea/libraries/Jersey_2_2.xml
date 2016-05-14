@@ -1,6 +1,5 @@
 <component name="libraryTable">
-  <library name="Jersey-2.2" type="JAX-RS">
-    <properties version="2.2" />
+  <library name="Jersey-2.2">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/jersey-container-servlet.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/jersey-container-servlet-core.jar!/" />

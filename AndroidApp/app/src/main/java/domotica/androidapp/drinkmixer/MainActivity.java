@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity
     private final String LOG_TAG = MainActivity.class.getSimpleName();
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private RecipeCardMainActivityAdapter amAdapter;
+    //private RecipeCardMainActivityAdapter amAdapter;
     ArrayList<RecipeDetails> recipesList = new ArrayList<>();
     List<RecipeDetails> reccc = new ArrayList<>();
 
@@ -89,8 +89,8 @@ public class MainActivity extends AppCompatActivity
         LinearLayoutManager llm = new LinearLayoutManager(MainActivity.this);
         rv.setLayoutManager(llm);
         //RecipeCardMainActivityAdapter adapter = new RecipeCardMainActivityAdapter (MainActivity.this,reccc);
-        amAdapter = new RecipeCardMainActivityAdapter(MainActivity.this,reccc);
-        rv.setAdapter(amAdapter);
+//        amAdapter = new RecipeCardMainActivityAdapter(MainActivity.this,reccc);
+//        rv.setAdapter(amAdapter);
 
 
     }
@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity
                 //TODO:
                 Uri.Builder buildURL = new Uri.Builder();
                 buildURL.scheme("http")
-                        .authority("192.168.0.7")
+                        .authority("10.33.20.222")
                         .appendPath("recipes")
                         .appendPath("all")
                         .build();
