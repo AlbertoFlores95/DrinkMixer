@@ -28,7 +28,7 @@ public class DatabaseConnection {
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:jtds:sqlserver://localhost:1433/DrinkMixer" +
-                    ";instance=SQLEXPRESS;user=Alberto.Flores;password=betobeto");
+                    ";instance=SQLEXPRESS;user=Alberto.Flores;password=BetoBeto");
             return con;
         } catch (Exception e) {
             System.out.println(e); // Print error
